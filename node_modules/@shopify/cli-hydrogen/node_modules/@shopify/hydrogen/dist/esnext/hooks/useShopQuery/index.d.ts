@@ -1,1 +1,0 @@
-export { useShopQuery } from './hooks';

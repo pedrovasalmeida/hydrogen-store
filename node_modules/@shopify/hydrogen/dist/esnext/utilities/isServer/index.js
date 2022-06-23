@@ -1,1 +1,0 @@
-export { isServer } from './isServer';
