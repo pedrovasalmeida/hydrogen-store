@@ -4,10 +4,12 @@ import {Router, FileRoutes, ShopifyProvider} from '@shopify/hydrogen';
 import {Suspense} from 'react';
 import MiniCart from './components/MiniCart/index';
 
+import shopifyConfig from '../hydrogen.config';
+
 function App() {
   return (
     <Suspense fallback={null}>
-      <ShopifyProvider>
+      <ShopifyProvider shopifyConfig={shopifyConfig.shopify}>
         <MiniCart />
         <Router>
           <FileRoutes />
