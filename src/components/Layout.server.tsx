@@ -2,6 +2,7 @@ import { gql, LocalizationProvider, useShop, useShopQuery } from '@shopify/hydro
 import React, { ReactNode, Suspense } from 'react'
 import Footer from './Footer/Footer.server';
 import { IMenuFooterDataProps } from './Footer/types/interfaces';
+import Header from './Header/Header.server';
 
 interface ILayoutProps {
   children: ReactNode
@@ -35,12 +36,8 @@ const Layout = ({ children }: ILayoutProps) => {
       <div className="min-h-screen max-w-screen text-gray-700 font-site">
         {/* TODO: Find out why Suspense needs to be here to prevent hydration errors. */}
         <Suspense fallback={null}>
-          {/* <Header
-            collections={collections}
-            storeName={storeName}
-            menuItems={menuItems}
+          <Header
           />
-          <Cart /> */}
         </Suspense>
         <main role="main" id="mainContent" className="relative">
           {/* {hero} */}
