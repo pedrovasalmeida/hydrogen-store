@@ -14,7 +14,7 @@ export default function MobileNavigation() {
           <div className="w-5 h-1 bg-black rounded-sm" />
         </div>
       </button>
-      <MobileNav isNavOpen/>
+      <MobileNav isNavOpen={isNavOpen}/>
     </div>
   )
 }
