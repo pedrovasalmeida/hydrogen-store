@@ -1,10 +1,10 @@
 import { Image } from '@shopify/hydrogen/client'
 import React from 'react'
-import MobileNavigation from './MobileNavigation/MobileNavigation'
+import MobileNavigation from './MobileNavigation/MobileNavigation.client'
 
 export default function Header() {
   return (
-    <header className='fixed w-full h-20 px-4 py-8 flex justify-between items-center bg-zinc-50 z-[1]'>      
+    <header id='header' className='fixed w-full h-20 px-4 py-8 flex justify-between items-center bg-zinc-50 z-[1]'>      
       <section>
         <div>
           <a href="/" className="font-black uppercase text-3xl tracking-widest md:px-[15px]">
