@@ -13,7 +13,7 @@ export default function Footer({collectionHandle, productHandle}: IFooterProps) 
   return (
     <footer role="contentinfo" className="relative text-white">
       <div className="bg-black px-5 pt-[70px]">
-        <div className="mx-auto flex sm:flex-col md:flex-row md:flex-wrap md:max-w-[720px] xl:max-w-[1170px]">
+        <div className="mx-auto flex flex-col md:flex-row md:flex-wrap md:max-w-[720px] xl:max-w-[1170px]">
           <FooterInfo />
           <FooterPages 
           collectionHandle={collectionHandle}

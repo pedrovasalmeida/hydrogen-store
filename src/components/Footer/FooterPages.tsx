@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from '@shopify/hydrogen';
 import { IFooterProps } from './types/interfaces';
 
 export default function FooterPages({collectionHandle,productHandle}: IFooterProps) {
@@ -8,16 +7,16 @@ export default function FooterPages({collectionHandle,productHandle}: IFooterPro
       <h2 className="text-md font-medium uppercase mb-4">Templates</h2>
       <ul className="mt-8 space-y-4 text-gray-400">
         <li className="flex items-center text-sm font-medium hover:text-gray-900">
-          <Link to="/home">Home</Link>
+          <a href="/home">Home</a>
         </li>
         <li className="flex items-center text-sm font-medium hover:text-gray-900">
-          <Link to={`/products/${productHandle}`}>Product</Link>
+          <a href={`/products/${productHandle}`}>Product</a>
         </li>
         <li className="flex items-center text-sm font-medium hover:text-gray-900">
-          <Link to={`/collections/${collectionHandle}`}>Collection</Link>
+          <a href={`/collections/${collectionHandle}`}>Collection</a>
         </li>
         <li className="flex items-center text-sm font-medium hover:text-gray-900">
-          <Link to="/404">404</Link>
+          <a href="/404">404</a>
         </li>
       </ul>
     </div>
