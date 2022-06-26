@@ -1,19 +1,17 @@
-import { faHeart } from '@fortawesome/free-regular-svg-icons'
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
+import MinicartComponent from '../MinicartComponent'
+import { IItems } from '../types/interfaces'
 
-interface IMobileNavProps {
+interface IMobileNavProps extends IItems {
   isNavOpen: boolean
 }
 
-export default function MobileNav({ isNavOpen }: IMobileNavProps) {
-
+export default function MobileNav({ isNavOpen, items }: IMobileNavProps) {
   return (
     <nav id='mobile-navbar' className={`fixed ${isNavOpen ? 'left-0' : '-left-full'} top-0 w-2/3 pt-[50px] pr-5 pb-[30px] pl-[30px] bg-zinc-50 h-screen transition-all duration-500`}>
       <MobileNavLinks />
-      <MobileNavSearch />
-      <MiniMenu />
+      <MinicartComponent />
+      <MiniMenu items={items}/>
     </nav>
   )
 }
@@ -30,26 +28,7 @@ function MobileNavLinks() {
   )
 }
 
-function MobileNavSearch() {
-  return (
-    <div id='mobile-navbar-search' className='mb-6'>
-      <ul className="flex md:hidden items-center justify-center text-xs">
-        <li className="w-fit text-base mr-[26px]">
-          <a className="group py-5 text-black" href='/'>
-            <FontAwesomeIcon className="w-4" icon={faMagnifyingGlass} />
-          </a>
-        </li>
-        <li className="w-fit text-base mr-[26px]">
-          <a className="group py-5 text-black" href='/'>
-            <FontAwesomeIcon className="w-4" icon={faHeart} />
-          </a>
-        </li>
-      </ul>
-    </div>
-  )
-}
-
-function MiniMenu() {
+function MiniMenu({items}: IItems) {
   const [isMiniMenuOpen, setIsMiniMenuOpen] = useState(false);
 
   return (
@@ -64,11 +43,13 @@ function MiniMenu() {
       </button>
       <div className="clear-both" >
         <ul className='ml-5'>
-          <li className='py-[5px] px-[10px] my-[2px] mx-[5px] text-sm'>Home</li>
-          <li className='py-[5px] px-[10px] my-[2px] mx-[5px] text-sm'>Shop</li>
-          <li className='py-[5px] px-[10px] my-[2px] mx-[5px] text-sm'>Pages</li>
-          <li className='py-[5px] px-[10px] my-[2px] mx-[5px] text-sm'>Blog</li>
-          <li className='py-[5px] px-[10px] my-[2px] mx-[5px] text-sm'>Contacts</li>
+        {items.map(item => (
+          <li className='py-[5px] px-[10px] my-[2px] mx-[5px] text-sm' key={item.id}>
+            <a href={`${item.url}`}>
+              {item.title}
+            </a>
+          </li>
+        ))}
         </ul>
       </div>
     </div>
