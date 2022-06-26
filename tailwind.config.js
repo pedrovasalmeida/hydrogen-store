@@ -9,10 +9,10 @@ module.exports = {
       desktop: '1919px',
     },
     flex: {
-      16: '16%',
-      'a-quarter': '25%',
-      half: '50%',
-      'more-than-half': '66%',
+      16: '0 0 16%',
+      'a-quarter': '0 0 25%',
+      half: '0 0 50%',
+      'more-than-half': '0 0 66%',
     },
     maxWidth: {
       16: '16%',

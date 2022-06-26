@@ -3,6 +3,7 @@ import React, { ReactNode, Suspense } from 'react'
 import Footer from './Footer/Footer.server';
 import { IMenuFooterDataProps } from './Footer/types/interfaces';
 import Header from './Header/Header.server';
+import { IMenuHeaderDataProps } from './Header/types/interfaces';
 
 interface ILayoutProps {
   children: ReactNode
@@ -11,7 +12,7 @@ interface ILayoutProps {
 const Layout = ({ children }: ILayoutProps) => {
   const { defaultLanguageCode } = useShop();
 
-  const { shop, collections, products } = useShopQuery({
+  const { collections, products } = useShopQuery({
     query: QUERY,
     variables: {
       language: defaultLanguageCode,
@@ -20,24 +21,22 @@ const Layout = ({ children }: ILayoutProps) => {
     preload: '*',
   }).data as IMenuFooterDataProps;
 
-  const { data: menudata } = useShopQuery({
+  const { menu } = useShopQuery({
     query: MENUQUERY,
     variables: {
       menuName: 'main-menu',
     },
-  }); 
+  }).data as IMenuHeaderDataProps;
 
   const flattenedCollections = collections.edges.flatMap((item) => item.node)
   const footerProductHandle = products.edges[0].node.handle
-  const storeName = shop.name;
+  const headerMenuItems = menu.items.map(item => (item))
 
   return (
     <LocalizationProvider>
       <div className="min-h-screen max-w-screen text-gray-700 font-site">
-        {/* TODO: Find out why Suspense needs to be here to prevent hydration errors. */}
         <Suspense fallback={null}>
-          <Header
-          />
+          <Header items={headerMenuItems}/>
         </Suspense>
         <main role="main" id="mainContent" className="relative">
           {/* {hero} */}
@@ -59,9 +58,6 @@ const Layout = ({ children }: ILayoutProps) => {
 const QUERY = gql`
   query layoutContent($language: LanguageCode, $numCollections: Int!)
   @inContext(language: $language) {
-    shop {
-      name
-    }
     collections(first: $numCollections) {
       edges {
         node {
