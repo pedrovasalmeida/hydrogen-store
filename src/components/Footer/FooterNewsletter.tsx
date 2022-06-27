@@ -6,7 +6,7 @@ export default function FooterNewsletter() {
   return (
     <div className="mb-[60px] md:flex-half md:max-w-1/2 md:pr-[30px] xl:flex-a-quarter xl:max-w-a-quarter xl:px-[15px] xl:ml-[8%]">
       <h2 className="text-md font-medium uppercase mb-5">Newsletter</h2>
-      <div className="mb-[15px] flex items-center text-sm font-medium text-gray-400 hover:text-gray-900">
+      <div className="mb-[15px] flex items-center text-sm font-medium text-gray-400 ">
         <p>
           Be the first to know about new arrivals, look books, sales & promos!
         </p>
