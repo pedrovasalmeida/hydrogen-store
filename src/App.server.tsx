@@ -5,15 +5,18 @@ import {Suspense} from 'react';
 import MiniCart from './components/MiniCart/index';
 
 import shopifyConfig from '../hydrogen.config';
+import {CartProvider} from './hooks/cartContext.client';
 
 function App() {
   return (
     <Suspense fallback={null}>
       <ShopifyProvider shopifyConfig={shopifyConfig.shopify}>
-        <MiniCart />
-        <Router>
-          <FileRoutes />
-        </Router>
+        <CartProvider>
+          <MiniCart />
+          <Router>
+            <FileRoutes />
+          </Router>
+        </CartProvider>
       </ShopifyProvider>
     </Suspense>
   );
