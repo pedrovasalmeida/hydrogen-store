@@ -1,4 +1,4 @@
-import React, {createContext, useMemo, useState} from 'react';
+import React, {createContext, useContext, useMemo, useState} from 'react';
 import {CartContextProps, CartProps} from '../types/Cart';
 import {CartProduct} from '../types/Product';
 
@@ -35,18 +35,21 @@ export const CartProvider = ({children}: {children: React.ReactNode}) => {
 
   const calculateCartTotalPrice = useMemo(
     () =>
-      cart.items.reduce((acumulator, current) => acumulator + current.price, 0),
+      cart.items?.reduce(
+        (acumulator, current) => acumulator + current.price,
+        0,
+      ),
     [cart],
   );
 
   const calculateCartUniqueItemsCount = useMemo(
-    () => cart.items.length,
+    () => cart.items?.length,
     [cart],
   );
 
   const calculateCartTotalItemsCount = useMemo(
     () =>
-      cart.items.reduce(
+      cart.items?.reduce(
         (acumulator, current) => acumulator + current.quantity,
         0,
       ),
@@ -117,8 +120,10 @@ export const CartProvider = ({children}: {children: React.ReactNode}) => {
 };
 
 export const useCart = () => {
-  if (!CartContext)
+  const context = useContext(CartContext);
+
+  if (!context)
     throw new Error('CartContext must be used as children of cart provider');
 
-  return CartContext;
+  return context;
 };
