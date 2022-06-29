@@ -24,6 +24,10 @@
     "vite": "^2.9.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "@shopify/hydrogen": "^1.0.0",
     "@shopify/prettier-config": "^1.1.2",
     "@tailwindcss/typography": "^0.5.2",
@@ -31,7 +35,8 @@
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0"
   },
   "author": "pedro",
   "prettier": "@shopify/prettier-config"

@@ -1,4 +1,4 @@
-import {defineConfig} from '@shopify/hydrogen/config';
+import { defineConfig } from '@shopify/hydrogen/config';
 
 export default defineConfig({
   shopify: {
