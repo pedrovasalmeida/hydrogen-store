@@ -1,6 +1,7 @@
 import { CacheShort, gql, log, useQuery } from '@shopify/hydrogen'
 import request from 'graphql-request';
 import React from 'react'
+import Slider from './Slider.client';
 
 export default function SliderHero() {
   const {data} = useQuery(
@@ -17,10 +18,10 @@ export default function SliderHero() {
     {cache: CacheShort()}
   )
 
-  log.debug(data.seoHeroSliders[0])
+  const {seoHeroComponents} = data.seoHeroSliders[0]
 
   return (
-    <div>SliderHero</div>
+    <Slider seoHeroComponents={seoHeroComponents}/>
   )
 }
 

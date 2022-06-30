@@ -1,4 +1,4 @@
-import { Image } from '@shopify/hydrogen/client'
+import { Image } from '@shopify/hydrogen'
 import React from 'react'
 import DesktopNavigation from './DesktopNavigation/DesktopNavigation.client'
 import MinicartComponent from './MinicartComponent'
@@ -7,11 +7,13 @@ import { IItems } from './types/interfaces'
 
 export default function Header({ items }: IItems) {
   return (
-    <header id='header' className='fixed w-full h-20 px-4 py-8 flex justify-between xl:justify-center items-center bg-zinc-50 z-[1]'>
+    <header id='header' className='relative w-full h-20 px-4 py-8 flex justify-between xl:justify-center items-center bg-zinc-50 z-[1]'>
       <section className='flex items-center justify-between md:px-1 xl:px-3 w-full md:max-w-[720px] xl:max-w-[1170px]'>
         <Logo />
         <DesktopNavigation items={items} />
-        <MinicartComponent />
+        <div className='hidden md:block'>
+          <MinicartComponent />
+        </div>
       </section>
       <section className='md:hidden'>
         <MobileNavigation items={items} />
