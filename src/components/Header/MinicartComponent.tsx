@@ -2,6 +2,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import MiniCart from './MiniCart.client'
 
 export default function MinicartComponent() {
   return (
@@ -18,6 +19,7 @@ export default function MinicartComponent() {
           </a>
         </li>
       </ul>
+      <MiniCart />
     </div>
   )
 }

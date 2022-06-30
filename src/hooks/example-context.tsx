@@ -1,4 +1,4 @@
-import React, {createContext} from 'react';
+import React, {createContext, useContext} from 'react';
 
 interface User {
   id: string;
@@ -22,8 +22,10 @@ export const UserProvider = ({children}: {children: React.ReactNode}) => {
 };
 
 export const useUser = () => {
-  if (!UserContext)
+  const context = useContext(UserContext);
+
+  if (!context)
     throw new Error('UserContext must be used inside a UserProvider');
 
-  return UserContext;
+  return context;
 };
