@@ -8,7 +8,7 @@ export interface IItems {
   items: IItemsArr[]
 }
 
-interface IItemsArr {
+export interface IItemsArr {
   id: string
   tags: any[]
   title: string

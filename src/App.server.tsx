@@ -3,9 +3,9 @@ import renderHydrogen from '@shopify/hydrogen/entry-server';
 import {Router, FileRoutes, ShopifyProvider} from '@shopify/hydrogen';
 import {Suspense} from 'react';
 import MiniCart from './components/cart/index';
-
 import shopifyConfig from '../hydrogen.config';
 import {CartProvider} from './hooks/cartContext.client';
+import 'dotenv/config';
 
 function App() {
   return (

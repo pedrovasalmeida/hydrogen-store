@@ -1,4 +1,4 @@
-import { gql, LocalizationProvider, useShop, useShopQuery } from '@shopify/hydrogen';
+import { CacheLong, gql, LocalizationProvider, useShop, useShopQuery } from '@shopify/hydrogen';
 import React, { ReactNode, Suspense } from 'react'
 import Footer from './Footer/Footer.server';
 import { IMenuFooterDataProps } from './Footer/types/interfaces';
@@ -7,9 +7,10 @@ import { IMenuHeaderDataProps } from './Header/types/interfaces';
 
 interface ILayoutProps {
   children: ReactNode
+  hero?: ReactNode
 }
 
-const Layout = ({ children }: ILayoutProps) => {
+const Layout = ({ children, hero }: ILayoutProps) => {
   const { defaultLanguageCode } = useShop();
 
   const { collections, products } = useShopQuery({
@@ -19,6 +20,7 @@ const Layout = ({ children }: ILayoutProps) => {
       numCollections: 3,
     },
     preload: '*',
+    cache: CacheLong()
   }).data as IMenuFooterDataProps;
 
   const { menu } = useShopQuery({
@@ -26,6 +28,7 @@ const Layout = ({ children }: ILayoutProps) => {
     variables: {
       menuName: 'main-menu',
     },
+    cache: CacheLong()
   }).data as IMenuHeaderDataProps;
 
   const flattenedCollections = collections.edges.flatMap((item) => item.node)
@@ -39,7 +42,7 @@ const Layout = ({ children }: ILayoutProps) => {
           <Header items={headerMenuItems}/>
         </Suspense>
         <main role="main" id="mainContent" className="relative">
-          {/* {hero} */}
+          {hero}
           <div className="mx-auto max-w-7xl p-4 md:py-5 md:px-8 xl:pt-0">
             <Suspense fallback={null}>{children}</Suspense>
           </div>
