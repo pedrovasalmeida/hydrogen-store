@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { Suspense } from 'react'
+import BoxFallback from '../components/BoxFallback/BoxFallback'
+import FeaturedCollectionBox from '../components/FeaturedCollections/FeaturedCollectionsBox.server'
 import Layout from '../components/Layout.server'
 import SliderHero from '../components/SliderHero/SliderHero.server'
 
-export default function Home() {
+export default function Home({ country = { isoCode: 'US' } }) {
   return (
-  <Layout hero={<SliderHero />}>
-    <div className='font-black text-xl'>Hello my brudda</div>
-  </Layout>
+    <Layout hero={<SliderHero />}>
+      <Suspense fallback={<BoxFallback />}>
+        <FeaturedCollectionBox country={country} />
+      </Suspense>
+      <Suspense fallback={<BoxFallback />}>
+        
+      </Suspense>
+    </Layout>
   )
 }

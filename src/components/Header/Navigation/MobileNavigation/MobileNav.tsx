@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import MinicartComponent from '../../NavOptions.client';
+import NavOptions from '../../NavOptions.client';
 import {IItems} from '../../types/interfaces';
 
 interface IMobileNavProps extends IItems {
@@ -15,7 +15,7 @@ export default function MobileNav({isNavOpen, items}: IMobileNavProps) {
       } top-0 w-2/3 pt-[50px] pr-5 pb-[30px] pl-[30px] bg-zinc-50 h-screen transition-all duration-500`}
     >
       <MobileNavLinks />
-      <MinicartComponent />
+      <NavOptions />
       <MiniMenu items={items} />
     </nav>
   );
