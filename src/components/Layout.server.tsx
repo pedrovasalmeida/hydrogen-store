@@ -1,5 +1,6 @@
 import { CacheLong, gql, LocalizationProvider, useShop, useShopQuery } from '@shopify/hydrogen';
 import React, { ReactNode, Suspense } from 'react'
+import BoxFallback from './BoxFallback/BoxFallback';
 import Footer from './Footer/Footer.server';
 import { IMenuFooterDataProps } from './Footer/types/interfaces';
 import Header from './Header/Header.server';
@@ -38,16 +39,18 @@ const Layout = ({ children, hero }: ILayoutProps) => {
   return (
     <LocalizationProvider>
       <div className="min-h-screen max-w-screen text-gray-700 font-site">
-        <Suspense fallback={null}>
+        <Suspense fallback={<BoxFallback />}>
           <Header items={headerMenuItems}/>
         </Suspense>
         <main role="main" id="mainContent" className="relative">
-          {hero}
+          <Suspense fallback={<BoxFallback />}>
+            {hero}
+          </Suspense>
           <div className="mx-auto max-w-7xl p-4 md:py-5 md:px-8 xl:pt-0">
-            <Suspense fallback={null}>{children}</Suspense>
+            <Suspense fallback={<BoxFallback />}>{children}</Suspense>
           </div>
         </main>
-        <Suspense>
+        <Suspense fallback={<BoxFallback />}>
           <Footer
             collectionHandle={flattenedCollections[0].handle}
             productHandle={footerProductHandle}

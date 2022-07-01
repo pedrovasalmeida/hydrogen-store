@@ -1,10 +1,10 @@
+import React from 'react';
 import {faHeart} from '@fortawesome/free-regular-svg-icons';
 import {
-  faMagnifyingGlass,
   faCartShopping,
+  faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import React from 'react';
 import {useCart} from '../../hooks/cartContext.client';
 
 export default function NavOptions() {
@@ -21,6 +21,11 @@ export default function NavOptions() {
       name: 'wishlist',
       icon: faHeart,
       href: '/',
+    },
+    {
+      name: 'cart',
+      icon: faCartShopping,
+      href: '#',
     },
   ];
 
