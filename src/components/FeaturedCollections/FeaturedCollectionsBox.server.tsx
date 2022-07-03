@@ -1,7 +1,7 @@
 import React from 'react'
 import { flattenConnection, gql, useShop, useShopQuery } from "@shopify/hydrogen";
 import FeaturedCollection from "./FeaturedColletions";
-import { IIFeaturedCollectionsBoxQuery } from './types/interfaces';
+import { IFeaturedCollectionsBoxQuery } from './types/interfaces';
 
 export default function FeaturedCollectionBox({country}: any) {
   const {defaultLanguageCode} = useShop();
@@ -13,7 +13,7 @@ export default function FeaturedCollectionBox({country}: any) {
       language: defaultLanguageCode,
     },
     preload: true,
-  }).data as IIFeaturedCollectionsBoxQuery;
+  }).data as IFeaturedCollectionsBoxQuery;
   
 
   const collections = data ? flattenConnection(data.collections) : [];

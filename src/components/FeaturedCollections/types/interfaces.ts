@@ -1,4 +1,4 @@
-export interface IIFeaturedCollectionsBoxQuery {
+export interface IFeaturedCollectionsBoxQuery {
   collections: IEdges
 }
 
