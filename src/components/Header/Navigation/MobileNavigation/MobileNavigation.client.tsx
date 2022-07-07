@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import {IItems} from '../../types/interfaces';
 import MobileNav from './MobileNav';
-
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCartShopping} from '@fortawesome/free-solid-svg-icons';
+import {useCart} from '../../../../hooks/cartContext.client';
 interface IMobileNavComponentsProps {
   setIsNavOpen: (boolean: boolean) => void;
   isNavOpen: boolean;
@@ -9,12 +11,21 @@ interface IMobileNavComponentsProps {
 
 export default function MobileNavigation({items}: IItems) {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const {hooks} = useCart();
+  const {toggleCart} = hooks;
 
   return (
-    <div id="mobile-navbar-container">
-      <BackgroundCover isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
-      <NavToggle isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
-      <MobileNav isNavOpen={isNavOpen} items={items} />
+    <div className="flex items-center justify-center gap-4 sm:gap-8">
+      <FontAwesomeIcon
+        icon={faCartShopping}
+        onClick={toggleCart}
+        className="w-6 h-6"
+      />
+      <div id="mobile-navbar-container">
+        <BackgroundCover isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
+        <NavToggle isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
+        <MobileNav isNavOpen={isNavOpen} items={items} />
+      </div>
     </div>
   );
 }
