@@ -29,6 +29,8 @@ export interface IGeneralInfo {
   id: string
   title: string
   variants: IVariantEdges
+  maxWidth?: string
+  flex?: string
 }
 
 interface IVariantEdges {
@@ -55,11 +57,13 @@ export interface IVariant {
     width: number
     height: number
   }
-  priceV2: {
-    currencyCode: string
-    amount: string
-  }
+  priceV2: IPrices
   compareAtPriceV2: any
+}
+
+export interface IPrices {
+  currencyCode: string
+  amount: string
 }
 
 interface INodeTitleArr {

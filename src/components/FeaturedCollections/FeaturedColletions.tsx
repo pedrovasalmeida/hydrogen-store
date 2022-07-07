@@ -4,7 +4,7 @@ import { ICollectionElementProps, ICollections } from './types/interfaces';
 
 export default function FeaturedCollection({ collections }: any) {
   return (
-    <div className="flex flex-col md:flex-row md:flex-wrap items-center pt-24 pb-16 xl:max-w-[1170px] xl:mx-auto xl:px-4">
+    <div className="flex flex-col md:flex-row md:flex-wrap items-center pb-16 xl:max-w-[1170px] xl:mx-auto xl:px-4">
       {collections.map((collection: ICollections) => {
         if (collections.indexOf(collection) % 2 === 0) {
           if (collections.indexOf(collection) === 0) {
@@ -46,10 +46,10 @@ function CollectionElement({collection, isAbsolute, order}: ICollectionElementPr
     <div
       className={
         order === '1'
-          ? 'px-4 mt-10 flex flex-col md:relative items-center bg-zinc-50 overflow-hidden md:w-full md:flex xl:flex-[58.333333%] xl:max-w-[58.333333%] xl:ml-[33%]'
+          ? 'px-4 mt-10 flex flex-col md:relative items-center bg-white overflow-hidden md:w-full md:flex xl:flex-[58.333333%] xl:max-w-[58.333333%] xl:ml-[33%]'
           : order === '2'
-          ? 'px-4 mt-10 xl:mt-24 flex flex-col md:relative items-center bg-zinc-50 overflow-hidden md:w-full md:flex xl:flex-[58.333333%] xl:max-w-[58.333333%]'
-          : 'px-4 mt-10 flex flex-col md:relative items-center bg-zinc-50 overflow-hidden md:w-full md:flex xl:flex-[41.666667%] xl:max-w-[41.666667%] xl:-mt-20'
+          ? 'px-4 mt-10 xl:mt-24 flex flex-col md:relative items-center bg-white overflow-hidden md:w-full md:flex xl:flex-[58.333333%] xl:max-w-[58.333333%]'
+          : 'px-4 mt-10 flex flex-col md:relative items-center bg-white overflow-hidden md:w-full md:flex xl:flex-[41.666667%] xl:max-w-[41.666667%] xl:-mt-20'
       }
     >
       <CollectionElementImage collection={collection} isAbsolute={isAbsolute} />

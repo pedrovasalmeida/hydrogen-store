@@ -3,7 +3,7 @@ import {IItems} from '../../types/interfaces';
 import MobileNav from './MobileNav';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCartShopping} from '@fortawesome/free-solid-svg-icons';
-import {useCart} from '../../../../hooks/cartContext.client';
+import { useCart } from '../../../../../hooks/cartContext.client';
 interface IMobileNavComponentsProps {
   setIsNavOpen: (boolean: boolean) => void;
   isNavOpen: boolean;

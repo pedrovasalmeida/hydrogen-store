@@ -7,7 +7,7 @@ import {
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
-import Button from '../Button/Button';
+import Button from '../../Button/Button';
 import { ICarousel, ISeoHeroComponent } from './types/interfaces';
 
 export default function Slider({ seoHeroComponents }: any) {

@@ -1,5 +1,5 @@
-import { CacheLong, gql, LocalizationProvider, useShop, useShopQuery } from '@shopify/hydrogen';
 import React, { ReactNode, Suspense } from 'react'
+import { CacheLong, gql, ShopifyProvider, useShop, useShopQuery } from '@shopify/hydrogen';
 import BoxFallback from './BoxFallback/BoxFallback';
 import Footer from './Footer/Footer.server';
 import { IMenuFooterDataProps } from './Footer/types/interfaces';
@@ -9,9 +9,10 @@ import { IMenuHeaderDataProps } from './Header/types/interfaces';
 interface ILayoutProps {
   children: ReactNode
   hero?: ReactNode
+  breadcrumbs?: ReactNode
 }
 
-const Layout = ({ children, hero }: ILayoutProps) => {
+const Layout = ({ children, hero, breadcrumbs }: ILayoutProps) => {
   const { defaultLanguageCode } = useShop();
 
   const { collections, products } = useShopQuery({
@@ -37,7 +38,7 @@ const Layout = ({ children, hero }: ILayoutProps) => {
   const headerMenuItems = menu.items.map(item => (item))
 
   return (
-    <LocalizationProvider>
+    <ShopifyProvider>
       <div className="min-h-screen max-w-screen text-gray-700 font-site">
         <Suspense fallback={<BoxFallback />}>
           <Header items={headerMenuItems}/>
@@ -46,7 +47,10 @@ const Layout = ({ children, hero }: ILayoutProps) => {
           <Suspense fallback={<BoxFallback />}>
             {hero}
           </Suspense>
-          <div className="mx-auto max-w-7xl p-4 md:py-5 md:px-8 xl:pt-0">
+          <Suspense>
+            {breadcrumbs}
+          </Suspense>
+          <div className="mx-auto max-w-7xl p-4 md:px-8 xl:pt-[100px] pb-[55px]">
             <Suspense fallback={<BoxFallback />}>{children}</Suspense>
           </div>
         </main>
@@ -57,7 +61,7 @@ const Layout = ({ children, hero }: ILayoutProps) => {
           />
         </Suspense>
       </div>
-    </LocalizationProvider>
+    </ShopifyProvider>
   );
 }
 

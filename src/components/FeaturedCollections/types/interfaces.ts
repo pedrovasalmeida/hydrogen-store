@@ -1,3 +1,5 @@
+import { IPrices } from "../../FeaturedProducts/types/interfaces"
+
 export interface IFeaturedCollectionsBoxQuery {
   collections: IEdges
 }
@@ -55,10 +57,7 @@ interface IVariantEdgesArr {
       width: number
       height: number
     }
-    priceV2: {
-      currencyCode: string
-      amount: string
-    }
+    priceV2: IPrices
     compareAtPriceV2: any
   }
 }

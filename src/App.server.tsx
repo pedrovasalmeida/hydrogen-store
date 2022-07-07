@@ -5,7 +5,7 @@ import {Suspense} from 'react';
 import shopifyConfig from '../hydrogen.config';
 import {CartProvider} from './hooks/cartContext.client';
 import 'dotenv/config';
-import BoxFallback from './components/BoxFallback/BoxFallback';
+import BoxFallback from './components/Layout/BoxFallback/BoxFallback';
 
 function App() {
   return (

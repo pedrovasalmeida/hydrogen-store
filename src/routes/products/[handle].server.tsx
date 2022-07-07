@@ -2,8 +2,8 @@ import React, {Suspense} from 'react';
 import {useRouteParams, useShopQuery, gql} from '@shopify/hydrogen';
 import {IProduct} from '../../types/Product';
 import ProductDetails from './productDetails.client';
-import Layout from '../../components/Layout.server';
-import BoxFallback from '../../components/BoxFallback/BoxFallback';
+import Layout from '../../components/Layout/Layout.server';
+import BoxFallback from '../../components/Layout/BoxFallback/BoxFallback';
 
 interface QueryProps {
   product: IProduct;

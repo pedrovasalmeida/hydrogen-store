@@ -3,7 +3,7 @@ import React from 'react';
 import {faClose} from '@fortawesome/free-solid-svg-icons';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {useCart} from '../../hooks/cartContext.client';
+import { useCart } from '../../../hooks/cartContext.client';
 
 export default function MiniCart() {
   const {isCartOpen, hooks} = useCart();
@@ -48,7 +48,7 @@ export default function MiniCart() {
           <p className="font-semibold text-base md:text-lg">R$ 9999,99</p>
         </div>
         <div className="flex w-full pt-4">
-          <button className="flex items-center justify-center w-full py-3 bg-zinc-900 text-zinc-50 font-bold rounded-xl">
+          <button className="flex items-center justify-center w-full py-3 bg-zinc-900 text-white font-bold rounded-xl">
             Finalizar pedido
           </button>
         </div>
