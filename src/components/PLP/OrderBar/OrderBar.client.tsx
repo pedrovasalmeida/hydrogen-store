@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function OrderBar() {
   return (
-    <div className='self-start flex flex-col md:flex-row md:items-center md:justify-between space-y-5 md:space-y-0 px-4 mb-11'>
+    <div className='md:w-full self-start flex flex-col md:flex-row md:items-center md:justify-between space-y-5 md:space-y-0 px-4 mb-11'>
       <div>
         <p>
           Showing 1–12 of 126 results

@@ -1,71 +1,32 @@
-import React, {useState} from 'react';
+import React from 'react';
 import NavOptions from '../../NavOptions.client';
-import {IItems} from '../../types/interfaces';
+import { IItems } from '../../types/interfaces';
 
 interface IMobileNavProps extends IItems {
   isNavOpen: boolean;
 }
 
-export default function MobileNav({isNavOpen, items}: IMobileNavProps) {
+export default function MobileNav({ isNavOpen, items }: IMobileNavProps) {
   return (
     <nav
       id="mobile-navbar"
-      className={`fixed ${
-        isNavOpen ? 'left-0' : '-left-full'
-      } top-0 w-2/3 pt-[50px] pr-5 pb-[30px] pl-[30px] bg-white h-screen transition-all duration-500`}
+      className={`fixed ${isNavOpen ? 'left-0' : '-left-full'
+        } top-0 w-2/3 pt-[50px] pr-5 pb-[30px] pl-[30px] bg-white h-screen transition-all duration-500`}
     >
-      <MobileNavLinks />
       <NavOptions />
       <MiniMenu items={items} />
     </nav>
   );
 }
 
-function MobileNavLinks() {
+function MiniMenu({ items }: IItems) {
   return (
-    <div id="mobile-navbar-links" className="mb-[30px]">
-      <ul className="w-full flex justify-between px-3">
-        <li className="font-semibold uppercase tracking-widest">Sign In</li>
-        <li className="font-semibold uppercase tracking-widest">FAQS</li>
-        <li className="font-semibold uppercase tracking-widest">USD</li>
-      </ul>
-    </div>
-  );
-}
-
-function MiniMenu({items}: IItems) {
-  const [isMiniMenuOpen, setIsMiniMenuOpen] = useState(false);
-
-  return (
-    <div
-      id="mobile-navbar-minimenu"
-      className={`bg-zinc-600 p-[5px] text-white ${
-        isMiniMenuOpen ? 'max-h-56' : 'max-h-14'
-      } transition-all duration-500`}
-    >
-      <button
-        onClick={() => setIsMiniMenuOpen(!isMiniMenuOpen)}
-        className="bg-zinc-800 float-right m-[5px] py-1.5 px-3 flex items-center rounded"
-      >
-        <span className="mr-2 uppercase font-bold">Menu</span>
-        <div className="flex flex-col items-center">
-          <div className="w-5 h-0.5 mb-1 bg-white rounded-sm" />
-          <div className="w-5 h-0.5 mb-1 bg-white rounded-sm" />
-          <div className="w-5 h-0.5 bg-white rounded-sm" />
-        </div>
-      </button>
-      <div className="clear-both">
-        <ul className="ml-5">
-          {items.map((item) => (
-            <li
-              className="py-[5px] px-[10px] my-[2px] mx-[5px] text-sm"
-              key={item.id}
-            >
-              <a href={`${item.url}`}>{item.title}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <ul className="flex flex-col gap-4">
+      {items.map((item) => (
+        <li className="text-base" key={item.id}>
+          <a href={`${item.url}`}>{item.title}</a>
+        </li>
+      ))}
+    </ul>
   );
 }
