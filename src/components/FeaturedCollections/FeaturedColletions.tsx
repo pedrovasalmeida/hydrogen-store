@@ -4,7 +4,7 @@ import { ICollectionElementProps, ICollections } from './types/interfaces';
 
 export default function FeaturedCollection({ collections }: any) {
   return (
-    <div className="flex flex-col md:flex-row md:flex-wrap items-center pt-24 pb-16 xl:max-w-[1170px] xl:mx-auto xl:px-4">
+    <div className="flex flex-col md:flex-row md:flex-wrap items-center pb-16 xl:max-w-[1170px] xl:mx-auto xl:px-4">
       {collections.map((collection: ICollections) => {
         if (collections.indexOf(collection) % 2 === 0) {
           if (collections.indexOf(collection) === 0) {

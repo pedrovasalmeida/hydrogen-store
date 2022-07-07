@@ -3,7 +3,7 @@ import React from 'react';
 import {faClose} from '@fortawesome/free-solid-svg-icons';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {useCart} from '../../hooks/cartContext.client';
+import { useCart } from '../../../hooks/cartContext.client';
 
 export default function MiniCart() {
   const {isCartOpen, hooks} = useCart();

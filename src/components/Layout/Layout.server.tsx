@@ -9,9 +9,10 @@ import { IMenuHeaderDataProps } from './Header/types/interfaces';
 interface ILayoutProps {
   children: ReactNode
   hero?: ReactNode
+  breadcrumbs?: ReactNode
 }
 
-const Layout = ({ children, hero }: ILayoutProps) => {
+const Layout = ({ children, hero, breadcrumbs }: ILayoutProps) => {
   const { defaultLanguageCode } = useShop();
 
   const { collections, products } = useShopQuery({
@@ -46,7 +47,10 @@ const Layout = ({ children, hero }: ILayoutProps) => {
           <Suspense fallback={<BoxFallback />}>
             {hero}
           </Suspense>
-          <div className="mx-auto max-w-7xl p-4 md:py-5 md:px-8 xl:pt-0">
+          <Suspense>
+            {breadcrumbs}
+          </Suspense>
+          <div className="mx-auto max-w-7xl p-4 md:px-8 xl:pt-[100px] pb-[55px]">
             <Suspense fallback={<BoxFallback />}>{children}</Suspense>
           </div>
         </main>

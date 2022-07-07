@@ -5,7 +5,7 @@ import {
   faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {useCart} from '../../hooks/cartContext.client';
+import { useCart } from '../../../hooks/cartContext.client';
 
 export default function NavOptions() {
   const {hooks} = useCart();
