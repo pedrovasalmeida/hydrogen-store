@@ -46,10 +46,10 @@ function CollectionElement({collection, isAbsolute, order}: ICollectionElementPr
     <div
       className={
         order === '1'
-          ? 'px-4 mt-10 flex flex-col md:relative items-center bg-zinc-50 overflow-hidden md:w-full md:flex xl:flex-[58.333333%] xl:max-w-[58.333333%] xl:ml-[33%]'
+          ? 'px-4 mt-10 flex flex-col md:relative items-center bg-white overflow-hidden md:w-full md:flex xl:flex-[58.333333%] xl:max-w-[58.333333%] xl:ml-[33%]'
           : order === '2'
-          ? 'px-4 mt-10 xl:mt-24 flex flex-col md:relative items-center bg-zinc-50 overflow-hidden md:w-full md:flex xl:flex-[58.333333%] xl:max-w-[58.333333%]'
-          : 'px-4 mt-10 flex flex-col md:relative items-center bg-zinc-50 overflow-hidden md:w-full md:flex xl:flex-[41.666667%] xl:max-w-[41.666667%] xl:-mt-20'
+          ? 'px-4 mt-10 xl:mt-24 flex flex-col md:relative items-center bg-white overflow-hidden md:w-full md:flex xl:flex-[58.333333%] xl:max-w-[58.333333%]'
+          : 'px-4 mt-10 flex flex-col md:relative items-center bg-white overflow-hidden md:w-full md:flex xl:flex-[41.666667%] xl:max-w-[41.666667%] xl:-mt-20'
       }
     >
       <CollectionElementImage collection={collection} isAbsolute={isAbsolute} />

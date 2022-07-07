@@ -12,7 +12,7 @@ export default function MobileNav({isNavOpen, items}: IMobileNavProps) {
       id="mobile-navbar"
       className={`fixed ${
         isNavOpen ? 'left-0' : '-left-full'
-      } top-0 w-2/3 pt-[50px] pr-5 pb-[30px] pl-[30px] bg-zinc-50 h-screen transition-all duration-500`}
+      } top-0 w-2/3 pt-[50px] pr-5 pb-[30px] pl-[30px] bg-white h-screen transition-all duration-500`}
     >
       <MobileNavLinks />
       <NavOptions />
@@ -39,7 +39,7 @@ function MiniMenu({items}: IItems) {
   return (
     <div
       id="mobile-navbar-minimenu"
-      className={`bg-zinc-600 p-[5px] text-zinc-50 ${
+      className={`bg-zinc-600 p-[5px] text-white ${
         isMiniMenuOpen ? 'max-h-56' : 'max-h-14'
       } transition-all duration-500`}
     >
@@ -49,9 +49,9 @@ function MiniMenu({items}: IItems) {
       >
         <span className="mr-2 uppercase font-bold">Menu</span>
         <div className="flex flex-col items-center">
-          <div className="w-5 h-0.5 mb-1 bg-zinc-50 rounded-sm" />
-          <div className="w-5 h-0.5 mb-1 bg-zinc-50 rounded-sm" />
-          <div className="w-5 h-0.5 bg-zinc-50 rounded-sm" />
+          <div className="w-5 h-0.5 mb-1 bg-white rounded-sm" />
+          <div className="w-5 h-0.5 mb-1 bg-white rounded-sm" />
+          <div className="w-5 h-0.5 bg-white rounded-sm" />
         </div>
       </button>
       <div className="clear-both">

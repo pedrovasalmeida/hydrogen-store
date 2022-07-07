@@ -1,5 +1,5 @@
-import { CacheLong, gql, LocalizationProvider, useShop, useShopQuery } from '@shopify/hydrogen';
 import React, { ReactNode, Suspense } from 'react'
+import { CacheLong, gql, ShopifyProvider, useShop, useShopQuery } from '@shopify/hydrogen';
 import BoxFallback from './BoxFallback/BoxFallback';
 import Footer from './Footer/Footer.server';
 import { IMenuFooterDataProps } from './Footer/types/interfaces';
@@ -38,7 +38,7 @@ const Layout = ({ children, hero, breadcrumbs }: ILayoutProps) => {
   const headerMenuItems = menu.items.map(item => (item))
 
   return (
-    <LocalizationProvider>
+    <ShopifyProvider>
       <div className="min-h-screen max-w-screen text-gray-700 font-site">
         <Suspense fallback={<BoxFallback />}>
           <Header items={headerMenuItems}/>
@@ -61,7 +61,7 @@ const Layout = ({ children, hero, breadcrumbs }: ILayoutProps) => {
           />
         </Suspense>
       </div>
-    </LocalizationProvider>
+    </ShopifyProvider>
   );
 }
 

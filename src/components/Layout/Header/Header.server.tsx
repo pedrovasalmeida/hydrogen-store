@@ -12,7 +12,7 @@ export default function Header({items}: IItems) {
       <MiniCart />
       <header
         id="header"
-        className="relative w-full h-20 px-4 md:px-5 py-8 flex justify-between xl:justify-center items-center bg-zinc-50 z-[1]"
+        className="relative w-full h-20 px-4 md:px-5 py-8 flex justify-between xl:justify-center items-center bg-white z-[1]"
       >
         <section className="flex items-center justify-between md:px-1 xl:px-3 w-full xl:max-w-[1170px]">
           <Logo />

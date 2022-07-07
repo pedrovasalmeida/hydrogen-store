@@ -13,7 +13,7 @@ function ColorsList({ colors }: IColorsListProps) {
         Colors
       </button>
       <div className='pt-[10px] pb-5'>
-        <ul className={`${isMenuOpen ? `max-h-56` : `max-h-0`} overflow-y-scroll transition-all duration-500 flex space-x-4`} >
+        <ul className={`${isMenuOpen ? `max-h-56` : `max-h-0`} transition-all duration-500 flex flex-wrap xl:justify-end space-x-4`} >
           {colors.map((color: string) => (
             <div className="pt-[15px] mb-[10px]" key={color}>
               <button
