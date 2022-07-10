@@ -14,8 +14,7 @@ export default function SliderHero() {
           Authorization: `Bearer ${process.env.GRAPH_CMS_TOKEN}`,
         },
       }).catch((error: any) => log.debug(error));
-    },
-    {cache: CacheShort()}
+    }
   )
 
   const {seoHeroComponents} = data.seoHeroSliders[0]

@@ -21,16 +21,14 @@ const Layout = ({ children, hero, breadcrumbs }: ILayoutProps) => {
       language: defaultLanguageCode,
       numCollections: 3,
     },
-    preload: '*',
-    cache: CacheLong()
+    preload: '*'
   }).data as IMenuFooterDataProps;
 
   const { menu } = useShopQuery({
     query: MENUQUERY,
     variables: {
       menuName: 'main-menu',
-    },
-    cache: CacheLong()
+    }
   }).data as IMenuHeaderDataProps;
 
   const flattenedCollections = collections.edges.flatMap((item) => item.node)

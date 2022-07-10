@@ -4,7 +4,7 @@ import Breadcrumbs from '../../components/Layout/Breadcrumbs/Breadcrumbs.client'
 import Layout from '../../components/Layout/Layout.server'
 import { IPLPQuery } from '../../components/PLP/FilterBar/types/interfaces'
 import PLP from '../../components/PLP/PLP.client'
-import { filterUtils } from './utils/filterUtils'
+import filterUtils from './utils/filterUtils'
 
 export default function Collections(
   {
@@ -43,7 +43,7 @@ export default function Collections(
 
   return (
     <Layout breadcrumbs={<Breadcrumbs />}>
-      <PLP colors={colors} sizes={sizes} tags={tags} Products={Products}/>
+      <PLP colors={colors} sizes={sizes} tags={tags} Products={Products} />
     </Layout>
   )
 }
