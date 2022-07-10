@@ -4,14 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import CategoryList from './CategoryList/CategoryList.client'
 import SizesList from './SizesList/SizesList.client'
 import ColorsList from './ColorsList/ColorsList.client'
+import { IGeneralInfo } from '../../FeaturedProducts/types/interfaces'
 
 interface IFilterBarProps {
   sizes: string[]
   colors: string[]
   tags: string[]
+  products: IGeneralInfo[]
+  setFilteredProducts: (products: IGeneralInfo[]) => void
 }
 
-export default function FilterBar({ sizes, colors, tags }: IFilterBarProps) {
+export default function FilterBar({ sizes, colors, tags, products, setFilteredProducts }: IFilterBarProps) {
   return (
     <aside className='w-full px-4 xl:flex-a-quarter xl:max-w-a-quarter md'>
       <div className='mb-11'>
@@ -23,9 +26,9 @@ export default function FilterBar({ sizes, colors, tags }: IFilterBarProps) {
         </form>
       </div>
       <div className='flex flex-col space-y-6'>
-        <CategoryList tags={tags} />
-        <SizesList sizes={sizes} />
-        <ColorsList colors={colors}/>
+        <CategoryList setFilteredProducts={setFilteredProducts} products={products} tags={tags} />
+        <SizesList setFilteredProducts={setFilteredProducts} products={products} sizes={sizes} />
+        <ColorsList setFilteredProducts={setFilteredProducts} products={products} colors={colors} />
       </div>
     </aside>
   )

@@ -1,10 +1,13 @@
+import { IGeneralInfo } from './../../../components/FeaturedProducts/types/interfaces';
 
-export function filterUtils() {
+export default function filterUtils() {
   const getVariants = (products: any) =>
-    products.map((product: any) => product.variants.edges.map((edge: any) => edge.node));
+    products.map((product: any) => getProductVariants(product));
 
-  const getSizes = (variants: any)=> {
-    const sizesArr = variants.flatMap((variant: any): String[] => variant.map((variantSubItem: any) => variantSubItem.title.split(' / ')[0]))  
+  const getProductVariants = (product: any) => product.variants.edges.map((edge: any) => edge.node)
+
+  const getSizes = (variants: any) => {
+    const sizesArr = variants.flatMap((variant: any): String[] => variant.map((variantSubItem: any) => variantSubItem.title.split(' / ')[0]))
 
     return Array.from(new Set<string>(sizesArr))
   }
@@ -22,5 +25,12 @@ export function filterUtils() {
     return Array.from(new Set<string>(tagsArr))
   }
 
-  return { getVariants, getSizes, getColors, getTags }
+  const filterSizes = (variants: IGeneralInfo[]): string[] =>
+    variants.map((variant: IGeneralInfo) => variant.title.split(' / ')[0]);
+  const filterColors = (variants: IGeneralInfo[]): string[] =>
+    variants.map((variant: any) => variant.title.split(' / ')[1]);
+  const filterTags = (variants: IGeneralInfo[]): string[] =>
+    variants.map((variant: any) => variant.product.tags).flat();
+
+  return { getVariants, getProductVariants, getSizes, getColors, getTags, filterColors, filterSizes, filterTags }
 }
