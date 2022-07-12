@@ -1,11 +1,18 @@
 import React from 'react'
 
-export default function OrderBar() {
+interface IOrderBarProps {
+  totalProducts: number
+  lastProductIndex: number
+  firstProductIndex: number
+}
+
+export default function OrderBar({ firstProductIndex, lastProductIndex, totalProducts }: IOrderBarProps) {
+
   return (
     <div className='md:w-full self-start flex flex-col md:flex-row md:items-center md:justify-between space-y-5 md:space-y-0 px-4 mb-11'>
       <div>
         <p>
-          Showing 1–12 of 126 results
+          Showing {firstProductIndex}–{lastProductIndex} of {totalProducts} results
         </p>
       </div>
       <div className='flex space-x-2'>
@@ -20,7 +27,7 @@ export default function OrderBar() {
               <li>Popularity</li>
               <li>Newest Releases</li>
               <li>Biggest Discounts</li>
-            </ul>            
+            </ul>
           </button>
         </div>
       </div>

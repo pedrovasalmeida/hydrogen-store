@@ -16,7 +16,7 @@ export interface IFeaturedProductsTitlesProps {
   setActiveCollections: (e: string) => void
 }
 
-interface IEdges {
+export interface IEdges {
   edges: IEdgesProductArr[]
 }
 

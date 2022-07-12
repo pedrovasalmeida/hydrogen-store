@@ -8,7 +8,7 @@ interface IProductListProps {
 
 function ProductsList({ products }: IProductListProps) {
   return (
-    <div className='space-y-10 flex flex-col justify-center md:flex-row md:flex-wrap md:space-y-0 w-full px-4'>
+    <div className='space-y-10 flex flex-col justify-center md:flex-row md:flex-wrap md:justify-start md:space-y-0 w-full px-4'>
       {products.map(product => (
         <div className='w-full md:max-w-1/2 md:flex-half xl:flex-33 xl:max-w-33' key={products.indexOf(product)}>
           <ProductCard key={product.id} handle={product.handle} id={product.id} title={product.title} variants={product.variants} flex='full' maxWidth='full' />
