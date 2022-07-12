@@ -9,7 +9,7 @@ import filterUtils from './utils/filterUtils'
 export default function Collections(
   {
     country = { isoCode: 'US' },
-    collectionProductCount = 9,
+    collectionProductCount = 48,
     params,
   }: any
 ) {
@@ -120,10 +120,6 @@ const PLPQUERY = gql`
               }
             }
           }
-        }
-        pageInfo {
-          hasNextPage
-          endCursor
         }
       }
     }

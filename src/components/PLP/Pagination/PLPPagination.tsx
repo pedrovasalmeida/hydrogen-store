@@ -1,15 +1,28 @@
 import React from 'react'
 
-export default function PLPPagination() {
+interface IPaginationProps {
+  productsPerPage: number
+  totalPosts: number
+  handlePaginate: (num: number) => void
+}
+
+export default function PLPPagination({ totalPosts, productsPerPage, handlePaginate }: IPaginationProps) {
+  const pageNums: number[] = []
+
+  for (let index = 1; index <= Math.ceil(totalPosts / productsPerPage); index++) {
+    pageNums.push(index)
+  }
+
   return (
     <div className='mt-6'>
       <ul className='flex space-x-1'>
-        <li className='font-bold hover:border border-black w-[30px] h-[30px] flex items-center justify-center rounded-full'>1</li>
-        <li className='font-bold hover:border border-black w-[30px] h-[30px] flex items-center justify-center rounded-full'>2</li>
-        <li className='font-bold hover:border border-black w-[30px] h-[30px] flex items-center justify-center rounded-full'>3</li>
-        <li className='font-bold hover:border border-black w-[30px] h-[30px] flex items-center justify-center rounded-full'>4</li>
-        <li className='font-bold hover:border border-black w-[30px] h-[30px] flex items-center justify-center rounded-full'>5</li>
-        <li className='font-bold hover:border border-black w-[30px] h-[30px] flex items-center justify-center rounded-full'>6</li>
+        {pageNums.map(num => (
+          <li key={num}>
+            <button onClick={() => handlePaginate(num)} className='font-bold hover:border border-black w-[30px] h-[30px] flex items-center justify-center rounded-full cursor-pointer'>
+              {num}
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
   )
